@@ -54,11 +54,11 @@ var vm = new Vue({
     return {
       // this is the example in RxJS's readme.
       results: this.$watchAsObservable('search').pipe(
-        pluck('newValue'),
+        pluck('newValue'), // watch api(newValue, oldValue)
         filter(text => text.length > 2),
         debounceTime(500),
         distinctUntilChanged(),
-        switchMap(fetchTerm),
+        switchMap(fetchTerm), // 多个事件发生，抛弃之前的事件
         map(formatResult)
       )
     }

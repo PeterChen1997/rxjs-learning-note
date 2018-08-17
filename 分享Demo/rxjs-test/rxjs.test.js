@@ -7,6 +7,7 @@ const assert = chai.assert;
 import { sum } from './sum.js';
 
 describe('operator sum', () => {
+  // 能正确完成求和
   it('should sum up range of value', () => {
     const source = Rx.Observable.range(1, 5);
 
@@ -17,6 +18,7 @@ describe('operator sum', () => {
     );
   });
 
+  // 能处理字符串数据
   it('should sum up string value', () => {
     const source = Rx.Observable.of('1', '2', '3');
 
